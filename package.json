@@ -7,7 +7,8 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "start:ios":"yarn ios -- --udid='0C97F059-06B9-4620-BFF0-E9EA4330E36B'"
   },
   "dependencies": {
     "react": "18.3.1",
