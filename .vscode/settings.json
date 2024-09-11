@@ -1,6 +1,9 @@
 {
     "java.configuration.updateBuildConfiguration": "interactive",
     "cSpell.words": [
-        "Pokedex"
-    ]
+        "Pokeball",
+        "Pokedex",
+        "pokemons"
+    ],
+    "java.compile.nullAnalysis.mode": "automatic"
 }
