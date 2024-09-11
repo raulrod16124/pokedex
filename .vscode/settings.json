@@ -4,7 +4,8 @@
         "Pokeball",
         "Pokedex",
         "Pokédex",
-        "pokemons"
+        "pokemons",
+        "Pressable"
     ],
     "java.compile.nullAnalysis.mode": "automatic"
 }
