@@ -40,14 +40,14 @@ export const PokemonScreen = ({ navigation, route}: IProps) => {
     >
       {/* Header Container */ }
       <View style={ styles.headerContainer }>
-        {/* Nombre del Pokemon */ }
+        {/* Pokemon name */ }
         <Text
           style={ {
             ...styles.pokemonName,
             top: top + 5,
           } }
         >
-          { Formatter.capitalize( pokemon.name ) + '\n' }#{ pokemon.id }
+          { Formatter.capitalize( pokemon.name )}{" "}#{ pokemon.id }
         </Text>
         {/* Pokeball */ }
         <Image source={ pokeballImg } style={ styles.pokeball } />
