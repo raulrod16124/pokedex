@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
         color: 'white',
         top: 10,
         left: 10,
+        fontFamily: "LuckiestGuy-Regular"
     },
     pokeball: {
         width: 100,

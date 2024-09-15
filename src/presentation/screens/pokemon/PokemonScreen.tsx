@@ -63,6 +63,7 @@ export const PokemonScreen = ({ navigation, route}: IProps) => {
             mode="outlined"
             selectedColor="white"
             style={ { marginLeft: 10 } }
+            textStyle={styles.text}
           >
             { type }
           </Chip>
@@ -81,8 +82,8 @@ export const PokemonScreen = ({ navigation, route}: IProps) => {
         }}
         renderItem={ ( { item } ) => (
           <FadeInImage
-          uri={ item }
-          style={ { width: 100, height: 100, marginHorizontal: 5 } }
+            uri={ item }
+            style={ { width: 100, height: 100, marginHorizontal: 5 } }
           />
         )}
       />
@@ -95,7 +96,7 @@ export const PokemonScreen = ({ navigation, route}: IProps) => {
         keyExtractor={item => item}
         showsHorizontalScrollIndicator={false}
         renderItem={({item}) => (
-          <Chip selectedColor='white'>{Formatter.capitalize(item)}</Chip>
+          <Chip textStyle={styles.text} selectedColor='white'>{Formatter.capitalize(item)}</Chip>
         )}
       />
       
@@ -108,7 +109,7 @@ export const PokemonScreen = ({ navigation, route}: IProps) => {
         showsHorizontalScrollIndicator={false}
         renderItem={({item}) => (
           <View style={styles.statsContainer}>
-            <Text style={{flex:1, color: "white"}}>
+            <Text style={[{flex:1, color: "white"}, styles.text]}>
               {Formatter.capitalize(item.name)}
             </Text>
             <Text style={{color: "white"}}>{item.value}</Text>
@@ -125,7 +126,7 @@ export const PokemonScreen = ({ navigation, route}: IProps) => {
         showsHorizontalScrollIndicator={false}
         renderItem={({item}) => (
           <View style={styles.statsContainer}>
-            <Text style={{flex:1, color: "white"}}>
+            <Text style={[{flex:1, color: "white"}, styles.text]}>
               {Formatter.capitalize(item.name)}
             </Text>
             <Text style={{color: "white"}}>lvl {item.level}</Text>
@@ -142,7 +143,7 @@ export const PokemonScreen = ({ navigation, route}: IProps) => {
         showsHorizontalScrollIndicator={false}
         centerContent
         renderItem={({item}) => (
-          <Chip selectedColor='white'>{Formatter.capitalize(item)}</Chip>
+          <Chip textStyle={styles.text} selectedColor='white'>{Formatter.capitalize(item)}</Chip>
         )}
       />
 
@@ -165,6 +166,7 @@ const styles = StyleSheet.create({
     fontSize: 40,
     alignSelf: 'flex-start',
     left: 20,
+    fontFamily: "LuckiestGuy-Regular"
   },
   pokeball: {
     width: 250,
@@ -186,13 +188,17 @@ const styles = StyleSheet.create({
   subTitle: {
     color: 'white',
     fontSize: 18,
-    fontWeight: 'bold',
     marginHorizontal: 20,
     marginTop: 20,
+    fontFamily: "LuckiestGuy-Regular"
   },
   statsContainer: {
     flexDirection: 'column',
     marginHorizontal: 20,
     alignItems: 'center',
   },
+  text: {
+    fontSize: 12,
+    fontFamily: "LuckiestGuy-Regular"
+  }
 });

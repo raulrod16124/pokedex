@@ -47,7 +47,7 @@ export const HomeScreen = ({ navigation }: IProps) => {
         numColumns={2}
         style={{paddingTop: top + 20}}
         ListHeaderComponent={() => (
-          <Text variant='displayMedium'>Pokédex</Text>
+          <Text variant='displayMedium' style={styles.text}>Pokédex</Text>
         )}
         renderItem={({item}) => <PokemonCard pokemon={item} />}
         onEndReachedThreshold={ 0.6 }
@@ -70,5 +70,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: -100,
     right: -100
+  },
+  text:{
+    fontFamily: "LuckiestGuy-Regular"
   }
 })
