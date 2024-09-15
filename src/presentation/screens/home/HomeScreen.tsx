@@ -9,6 +9,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { PokemonCard } from '../../components/pokemons/PokemonCard'
 import { StackScreenProps } from '@react-navigation/stack'
 import { RootStackParams } from '../../navigator/StackNavigator'
+import Icon from "react-native-vector-icons/Ionicons"
 
 interface IProps extends StackScreenProps<RootStackParams, "HomeScreen"> {}
 
@@ -41,6 +42,7 @@ export const HomeScreen = ({ navigation }: IProps) => {
   return (
     <View style={globalTheme.globalMargin}>
       <PokeballBg style={styles.imgPosition} />
+      
       <FlatList 
         data={data?.pages.flat() ?? []}
         keyExtractor={(pokemon, index) => `${pokemon.id}-${index}`}
@@ -55,10 +57,9 @@ export const HomeScreen = ({ navigation }: IProps) => {
         showsVerticalScrollIndicator={false}
       />
       <FAB 
-        label='Search'
+        icon={() => <Icon name="search-outline" size={25} color={theme.dark ? "black" : "white"} />}
         style={[ globalTheme.fab, { backgroundColor: theme.colors.primary}]}
         mode='elevated'
-        color={theme.dark ? "black" : "white"}
         onPress={() => navigation.push("SearchScreen")}
       />
     </View>

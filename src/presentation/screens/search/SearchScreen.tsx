@@ -56,6 +56,9 @@ export const SearchScreen = () => {
         autoCorrect={false}
         onChangeText={ value => setTerm(value)}
         value={term}
+        style={{
+          fontFamily: "LuckiestGuy-Regular"
+        }}
       />
 
       { isLoadingPokemons && <ActivityIndicator style={{paddingTop: 20}} />}
