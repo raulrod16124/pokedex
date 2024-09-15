@@ -7,14 +7,17 @@ import { getPokemonById } from '../../../actions/pokemons/get-pokemon-by-id'
 import { FullScreenLoader } from '../../components/ui/FullScreenLoader'
 import { Formatter } from '../../../config/helpers/formatter'
 import { FadeInImage } from '../../components/ui/FadeInImage'
-import { Chip, Text } from 'react-native-paper'
+import { Chip, FAB, Text } from 'react-native-paper'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { ThemeContext } from '../../context/ThemeContext'
+import Icon from "react-native-vector-icons/Ionicons"
+import { globalTheme } from '../../../config/theme/global-theme'
+import { NavigationProp, useNavigation } from '@react-navigation/native'
 
 interface IProps extends StackScreenProps<RootStackParams, "PokemonScreen">{}
 
-export const PokemonScreen = ({ navigation, route}: IProps) => {
-  const {isDark} = useContext(ThemeContext);
+export const PokemonScreen = ({navigation, route}: IProps) => {
+  const {isDark, theme} = useContext(ThemeContext);
   const { top } = useSafeAreaInsets();
   const { pokemonId } = route.params;
 
@@ -34,7 +37,7 @@ export const PokemonScreen = ({ navigation, route}: IProps) => {
 
   return (
     <ScrollView
-      style={ { flex: 1, backgroundColor: pokemon.color } }
+      style={ { flex: 1, backgroundColor: pokemon.color} }
       bounces={ false }
       showsVerticalScrollIndicator={ false }
     >
@@ -146,7 +149,12 @@ export const PokemonScreen = ({ navigation, route}: IProps) => {
           <Chip textStyle={styles.text} selectedColor='white'>{Formatter.capitalize(item)}</Chip>
         )}
       />
-
+      <FAB
+        icon={() => <Icon name="arrow-forward" size={25} color={theme.dark ? "black" : "white"} />}
+        style={[ globalTheme.fabTop, { backgroundColor: pokemon.color}]}
+        mode='elevated'
+        onPress={() => navigation.navigate("PokemonScreen", {pokemonId: pokemon.id + 1})}
+      />
       <View style={ { height: 100 } } />
     </ScrollView>
   )
